@@ -14,9 +14,13 @@ class ListViewDemoStats extends State<ListViewDemo>{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return ListView.builder(
-      itemCount: posts.length,
-      itemBuilder: _listItemBuilder,
+    return Container(
+      color: Color(0xffECE584),
+      child: ListView.builder(
+
+        itemCount: posts.length,
+        itemBuilder: _listItemBuilder,
+      )
     );
   }
 
@@ -49,8 +53,8 @@ class ListViewDemoStats extends State<ListViewDemo>{
             child: Material(
               color: Colors.transparent,
               child: InkWell(
-                splashColor: Colors.white.withOpacity(0.3),
-                highlightColor: Colors.white.withOpacity(0.1),
+                splashColor: Colors.grey.withOpacity(0.3),
+                highlightColor: Colors.grey.withOpacity(0.1),
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => PostShow(post: posts[index]))

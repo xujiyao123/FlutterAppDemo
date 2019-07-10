@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/Controllers/listview_demo.dart';
 import "post.dart";
 
 class PostShow extends StatelessWidget {
@@ -15,10 +16,10 @@ class PostShow extends StatelessWidget {
         title: Text('${post.title}'),
         elevation: 0.0,
       ),
-      body: Column(
+      body:ListView(
         children: <Widget>[
           Image.network(
-            post.imageUrl
+              post.imageUrl
           ),
           Container(
             padding: EdgeInsets.all(32.0),
@@ -34,7 +35,7 @@ class PostShow extends StatelessWidget {
             ),
           ),
         ],
-      ),
+      )
     );
   }
 }

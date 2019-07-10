@@ -31,7 +31,6 @@ class _HomePageControllerState extends State<HomePageController> with SingleTick
 
   }
   Widget selectController() {
-
     if (_selectIndex == 0) {
       return HomePage();
     }else if (_selectIndex == 1) {
@@ -39,8 +38,6 @@ class _HomePageControllerState extends State<HomePageController> with SingleTick
     }else if (_selectIndex == 2) {
       return ListViewController();
     }
-
-
   }
   @override
   void initState() {
@@ -62,7 +59,9 @@ class _HomePageControllerState extends State<HomePageController> with SingleTick
         ],
         bottom: TabBar(
           controller: _tabController,
-          tabs: tabs.map((e)=>Tab(text: e)).toList(),
+          tabs: tabs.map((e) {
+            return Tab(text: e);
+          }).toList()
         ) ,
       ),
       drawer: MyDrawer(),
@@ -99,6 +98,11 @@ class _HomePageStat extends State<HomePage> {
         padding: EdgeInsets.all(0),
         children: <Widget>[
           Image.asset("lib/Resourse/1.png"),
+          FlatButton(
+            textTheme: ButtonTextTheme.primary,
+            child: Text("opne mew rote" , style: TextStyle(
+            ),),
+          ),
           FlatButton(
             child: Text("open new route"),
             textColor: Colors.red,
