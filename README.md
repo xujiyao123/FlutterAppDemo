@@ -8,6 +8,12 @@
 ![images](https://github.com/xujiyao123/FlutterAppDemo/blob/master/lib/Resourse/test.png)
 
 
+## Android
+
+
+![images](https://github.com/xujiyao123/FlutterAppDemo/blob/master/lib/Resourse/android.jpg)
+
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
