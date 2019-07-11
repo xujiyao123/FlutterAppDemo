@@ -107,6 +107,7 @@ class _HomePageStat extends State<HomePage> {
 
   Widget _listViewBuilder(BuildContext context , int row) {
     if (row == 0) {
+      return Image.network("https://resources.ninghao.org/images/free_hugs.jpg" , height: 200, fit: BoxFit.cover,);
       return Image.asset("lib/Resourse/1.png" , height: 200, fit: BoxFit.cover,);
     }
     return Container(

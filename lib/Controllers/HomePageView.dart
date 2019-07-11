@@ -69,7 +69,9 @@ class HomePageViewState extends State<HomePageView> {
       child:
           ListView(
             children: <Widget>[
-              Image.asset("lib/Resourse/1.png" , height: 200, fit: BoxFit.cover,),
+              Image.network("https://resources.ninghao.org/images/free_hugs.jpg" , height: 200, fit: BoxFit.cover,),
+
+//      Image.asset("lib/Resourse/1.png" , height: 200, fit: BoxFit.cover,),
               GridView.builder(
                 physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
