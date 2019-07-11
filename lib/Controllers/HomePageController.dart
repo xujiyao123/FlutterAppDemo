@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/Controllers/HomePageView.dart';
 import 'package:flutter_app/Controllers/ListViewController.dart';
 import 'package:flutter_app/Controllers/listview_demo.dart';
 
@@ -32,7 +33,7 @@ class _HomePageControllerState extends State<HomePageController> with SingleTick
   }
   Widget selectController() {
     if (_selectIndex == 0) {
-      return HomePage();
+      return HomePageView();
     }else if (_selectIndex == 1) {
       return ListViewDemo();
     }else if (_selectIndex == 2) {
@@ -54,7 +55,7 @@ class _HomePageControllerState extends State<HomePageController> with SingleTick
         title: Text(widget.title),
         actions: <Widget>[
             IconButton(icon: Icon(Icons.settings),onPressed: ()=>{
-
+              Navigator.pushNamed(context, "setting_page")
             },)
         ],
         bottom: TabBar(
@@ -72,7 +73,7 @@ class _HomePageControllerState extends State<HomePageController> with SingleTick
           BottomNavigationBarItem(icon: Icon(Icons.not_interested) , title: Text("item"))
         ],
         currentIndex: _selectIndex,
-        fixedColor: Colors.blue,
+        fixedColor: Colors.red,
         onTap:_tabbarAction,
         type: BottomNavigationBarType.fixed,
       ),
@@ -80,6 +81,14 @@ class _HomePageControllerState extends State<HomePageController> with SingleTick
     );
   }
 }
+
+
+
+
+
+
+
+
 
 class HomePage extends StatefulWidget {
   @override
@@ -90,67 +99,44 @@ class HomePage extends StatefulWidget {
 
 }
 class _HomePageStat extends State<HomePage> {
+
+  var titles = ["Image demo" , "ios Style" , "text demo" , "button demo" , "input demo" , "layout demo" , "111"];
+  var subTitles = ["a Image demo NetworlImage" , "ios Style button " , "text demo and rich color" , "button demo and coutom button" , "input demo and switch and label" , "layout demo and custon view" , "1"];
+  var tapNames = ["new_page" ,"ios_page" , "text_page" , "button_page" , "switch_page" , "layout_page" , "setting_page"];
+  // TODO: implement build
+
+  Widget _listViewBuilder(BuildContext context , int row) {
+    if (row == 0) {
+      return Image.asset("lib/Resourse/1.png" , height: 200, fit: BoxFit.cover,);
+    }
+    return Container(
+      child:  ListTile(
+          title: Text(titles[row -1]),
+          subtitle: Text(subTitles[row - 1]),
+          onTap: ()=> Navigator.pushNamed(context, tapNames[row -1])
+      ),
+    );
+  }
+
+  Widget _listViewSepBulider(BuildContext context , int row) {
+    return Divider(color: Colors.grey, height: 1);
+
+  }
+
+  
+
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return ListView(
+
+
+    return ListView.separated(
         shrinkWrap: true,
         padding: EdgeInsets.all(0),
-        children: <Widget>[
-          Image.asset("lib/Resourse/1.png"),
-          FlatButton(
-            textTheme: ButtonTextTheme.primary,
-            child: Text("opne mew rote" , style: TextStyle(
-            ),),
-          ),
-          FlatButton(
-            child: Text("open new route"),
-            textColor: Colors.red,
-            onPressed: () {
-//                Navigator.push(context, new MaterialPageRoute(builder: (context) {
-//                  return NewRoute();
-//                }));
-              Navigator.pushNamed(context, "new_page" ,arguments: "111");
-            },
-          ),
-          CupertinoButton(
-            child: Text("iosStyle"),
-            color: Colors.red,
-            onPressed: () {
-              Navigator.pushNamed(context, "ios_page");
-            },
-          ),
-          FlatButton(
-            child: Text("text demo"),
-            textColor: Colors.black,
-            onPressed: () {
-              Navigator.pushNamed(context, "text_page");
-            },
-          ),
-          FlatButton(
-            child: Text("button demo"),
-            textColor: Colors.lime,
-            onPressed: () {
-              Navigator.pushNamed(context,"button_page");
-            },
-          ),
-          FlatButton(
-            child: Text("switch demo"),
-            textColor: Colors.lime,
-            onPressed: () {
-              Navigator.pushNamed(context,"switch_page");
-            },
-          ),
-          FlatButton(
-            child: Text("layout demo"),
-            textColor: Colors.lime,
-            onPressed: () {
-              Navigator.pushNamed(context,"layout_page");
-            },
-          )
-
-
-        ]
+        separatorBuilder: _listViewSepBulider,
+        itemBuilder: _listViewBuilder,
+        itemCount: titles.length + 1,
+      primary: true,
     );
   }
 
@@ -186,7 +172,7 @@ class MyDrawer extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "徐继垚",
+                    "Sunnytu",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   )
                 ],

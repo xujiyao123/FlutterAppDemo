@@ -12,7 +12,7 @@ class IosStyleController extends StatelessWidget {
           color: CupertinoColors.activeBlue,
           child: Text("press"),
           onPressed: (){
-
+              Navigator.pop(context);
           },
         ),
       ),

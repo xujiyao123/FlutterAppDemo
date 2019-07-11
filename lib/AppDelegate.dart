@@ -6,6 +6,7 @@ import 'package:flutter_app/Controllers/ImageController.dart';
 import 'package:flutter_app/Controllers/IosStyleController.dart';
 import 'package:flutter_app/Controllers/LayoutController.dart';
 import 'package:flutter_app/Controllers/ListViewController.dart';
+import 'package:flutter_app/Controllers/SettingController.dart';
 import 'package:flutter_app/Controllers/SwitchExcampleController.dart';
 import 'package:flutter_app/Controllers/TextExcampleController.dart';
 import 'package:flutter_app/Controllers/listview_demo.dart';
@@ -15,7 +16,7 @@ class AppDelegate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(title: 'Flutter Demo',
-      theme: ThemeData(primarySwatch: Colors.blue,),
+      theme: ThemeData(primarySwatch: Colors.yellow,),
       home: HomePageController(title: 'Flutter Demo Home Page') ,
       routes: {
         "new_page" : (context) => ImageController(),
@@ -25,7 +26,8 @@ class AppDelegate extends StatelessWidget {
         "switch_page": (context)=>  SwitchController(),
         "layout_page":(context)=> LayoutController(),
         "list_page" :(context)=> ListViewController(),
-        "list_demo" : (context)=> ListViewDemo()
+        "list_demo" : (context)=> ListViewDemo() ,
+        "setting_page" : (context) => SettingController()
       },
     );
   }
