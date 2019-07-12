@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Controllers/ButtonExcampleController.dart';
+import 'package:flutter_app/Controllers/CostomScrollerController.dart';
 import 'package:flutter_app/Controllers/HomePageController.dart';
 import 'package:flutter_app/Controllers/ImageController.dart';
 import 'package:flutter_app/Controllers/IosStyleController.dart';
@@ -27,7 +28,8 @@ class AppDelegate extends StatelessWidget {
         "layout_page":(context)=> LayoutController(),
         "list_page" :(context)=> ListViewController(),
         "list_demo" : (context)=> ListViewDemo() ,
-        "setting_page" : (context) => SettingController()
+        "setting_page" : (context) => SettingController(),
+        "customScroller_page" : (context) => CostomScrollerController()
       },
     );
   }
