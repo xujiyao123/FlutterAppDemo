@@ -19,7 +19,7 @@ class _HomePageControllerState extends State<HomePageController> with SingleTick
 
   TabController _tabController;
 
-  List tabs = ["徐" ,"继","垚"];
+  List tabs = ["功能" ,"动态","资讯"];
 
   int _selectIndex = 0;
   void _tabbarAction(int index) {

@@ -12,17 +12,17 @@ class HomePageView extends StatefulWidget {
 
 class HomePageViewState extends State<HomePageView> {
 
-  var titles = ["Image demo" , "ios Style" , "text demo" , "button demo" , "input demo" , "layout demo" , "customScroller"];
+  var titles = ["图像处理" , "苹果风格" , "文字处理" , "按钮样式" , "输入选择" , "布局样式" , "自定义"];
   var subTitles = ["a Image demo NetworlImage" , "ios Style button " , "text demo and rich color" , "button demo and coutom button" , "input demo and switch and label" , "layout demo and custon view" , "1"];
   var tapNames = ["new_page" ,"ios_page" , "text_page" , "button_page" , "switch_page" , "layout_page" , "customScroller_page"];
 
   var icons = [
-      Icons.ac_unit,
-      Icons.airport_shuttle,
-      Icons.all_inclusive,
-      Icons.beach_access,
-      Icons.cake,
-      Icons.favorite,
+      Icons.image,
+      Icons.apps,
+      Icons.text_fields,
+      Icons.radio_button_checked,
+      Icons.input,
+      Icons.layers,
       Icons.accessibility_new
   ];
 

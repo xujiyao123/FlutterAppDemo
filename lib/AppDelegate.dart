@@ -18,7 +18,7 @@ class AppDelegate extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.yellow,),
-      home: HomePageController(title: 'Flutter Demo Home Page') ,
+      home: HomePageController(title: 'Bonjour Flutter !') ,
       routes: {
         "new_page" : (context) => ImageController(),
         "ios_page" : (context) => IosStyleController(),
