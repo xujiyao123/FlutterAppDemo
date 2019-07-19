@@ -90,58 +90,6 @@ class _HomePageControllerState extends State<HomePageController> with SingleTick
 
 
 
-class HomePage extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return _HomePageStat();
-  }
-
-}
-class _HomePageStat extends State<HomePage> {
-
-  var titles = ["Image demo" , "ios Style" , "text demo" , "button demo" , "input demo" , "layout demo" , "111"];
-  var subTitles = ["a Image demo NetworlImage" , "ios Style button " , "text demo and rich color" , "button demo and coutom button" , "input demo and switch and label" , "layout demo and custon view" , "1"];
-  var tapNames = ["new_page" ,"ios_page" , "text_page" , "button_page" , "switch_page" , "layout_page" , "setting_page"];
-  // TODO: implement build
-
-  Widget _listViewBuilder(BuildContext context , int row) {
-    if (row == 0) {
-      return Image.network("https://resources.ninghao.org/images/free_hugs.jpg" , height: 200, fit: BoxFit.cover,);
-      return Image.asset("lib/Resourse/1.png" , height: 200, fit: BoxFit.cover,);
-    }
-    return Container(
-      child:  ListTile(
-          title: Text(titles[row -1]),
-          subtitle: Text(subTitles[row - 1]),
-          onTap: ()=> Navigator.pushNamed(context, tapNames[row -1])
-      ),
-    );
-  }
-
-  Widget _listViewSepBulider(BuildContext context , int row) {
-    return Divider(color: Colors.grey, height: 1);
-
-  }
-
-  
-
-
-  @override
-  Widget build(BuildContext context) {
-
-
-    return ListView.separated(
-        shrinkWrap: true,
-        padding: EdgeInsets.all(0),
-        separatorBuilder: _listViewSepBulider,
-        itemBuilder: _listViewBuilder,
-        itemCount: titles.length + 1,
-      primary: true,
-    );
-  }
-
-}
 class MyDrawer extends StatelessWidget {
   const MyDrawer({
     Key key,

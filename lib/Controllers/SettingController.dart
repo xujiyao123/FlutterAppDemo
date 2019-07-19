@@ -1,6 +1,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/Controllers/AppManager.dart';
+import 'package:flutter_app/Controllers/AppNotification.dart';
 
 
 
@@ -13,6 +15,7 @@ class SettingController extends StatefulWidget {
 }
 
 class SettingControolrState extends State<SettingController> {
+
 
 
   Widget _ListViewBuilder(BuildContext context , int row) {
@@ -29,6 +32,14 @@ class SettingControolrState extends State<SettingController> {
             child: ListTile(
               title: Text("rhis is a list title"),
               subtitle: Text("row = $row"),
+              onTap: () {
+                print(row);
+                if (row == 0) {
+                  App.emit("themeChange" , new ThemeData(primarySwatch: Colors.red));
+                }else if (row == 1) {
+                  AppNotification(themeData: new ThemeData(primarySwatch: Colors.blue)).dispatch(context);
+                }
+              },
             )
         ),
       );
