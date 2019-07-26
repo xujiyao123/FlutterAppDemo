@@ -11,6 +11,7 @@ import 'package:flutter_app/Controllers/ImageController.dart';
 import 'package:flutter_app/Controllers/IosStyleController.dart';
 import 'package:flutter_app/Controllers/LayoutController.dart';
 import 'package:flutter_app/Controllers/ListViewController.dart';
+import 'package:flutter_app/Controllers/NteWork/NetWorkPage.dart';
 import 'package:flutter_app/Controllers/SettingController.dart';
 import 'package:flutter_app/Controllers/SwitchExcampleController.dart';
 import 'package:flutter_app/Controllers/TextExcampleController.dart';
@@ -68,7 +69,8 @@ class AppDelegateState extends State<AppDelegate> {
           "setting_page" : (context) => SettingController(),
           "customScroller_page" : (context) => CostomScrollerController(),
           "point_page" : (context) => PointEventPage(),
-          "animation_page" : (context) => AnimationPage()
+          "animation_page" : (context) => AnimationPage(),
+          "net_page" : (context) => NetWorkPage()
         },
       ) ,
     );

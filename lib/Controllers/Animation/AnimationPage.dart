@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/Controllers/Animation/FadePageRoute.dart';
+import 'package:flutter_app/Controllers/Animation/HeroAnimationPage.dart';
 import 'package:flutter_app/Controllers/Animation/ScaleAnimationPage.dart';
+import 'package:flutter_app/Controllers/Animation/StaggerAnimationPage.dart';
 
 class AnimationPage extends StatefulWidget {
   @override
@@ -12,12 +15,16 @@ class AnimationPage extends StatefulWidget {
 }
 class AnimationPageState extends State<AnimationPage> {
 
-  var titles = ["ScaleAnimation" ];
-  var pushPage = [ScaleAnimationPage()];
+  var titles = ["ScaleAnimation" , "HeroAnimation" , "StaggerDemo"];
+  var pushPage = [ScaleAnimationPage() , HeroAnimationPage() , StaggerDemo()];
 
   Widget _listViewBuilder(BuildContext context , int row) {
-      return ListTile(title: Text(titles[row]),
-      onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => pushPage[row]))
+      return ListTile(title: Text(titles[row]), onTap: () {
+        Navigator.push(context,
+            FadePageRoute(builder: (context) => pushPage[row])
+          );
+      }
+//          MaterialPageRoute(builder: (BuildContext context) => pushPage[row]))
       );
   }
   Widget _sepatorBuilder(BuildContext context , int row) {
