@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:dio/dio.dart';
+import 'package:flutter_app/models/User.dart';
 
 class NetWorkPage extends StatefulWidget {
   @override
@@ -41,12 +42,16 @@ class NetWorkPageState extends State<NetWorkPage> {
         response = await dio.get(
             "http://10.3.34.211:8082/rcs/api/v1/login/mobileLogin",
             queryParameters: {"account" : "mengjie" , "password" : "123456"},
-            options: Options(responseType: ResponseType.plain)
+            options: Options(responseType: ResponseType.json)
         );
 
-        Map<String , dynamic> result = json.decode(response.data);
+//        Map<String ,dynamic> result = response.data as Map<String , dynamic>;
 
-        print(result);
+
+//        Map<String , dynamic> result = json.decode(response.data);
+        User result = User.fromJson(response.data);
+
+        print(result.data[0].riverwayName);
 
         setState(() {
           _text = response.data.toString();

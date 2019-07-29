@@ -1,0 +1,16 @@
+{
+  "user_id" : 15,
+  "account" : "mengjie",
+  "password" : "123456",
+  "user_name" : "孟洁",
+  "sex" : null,
+  "status" : null,
+  "job" : "街道办主任",
+  "phone" : "123",
+  "identity" : "5",
+  "id" : 28,
+  "organ_id" : 4,
+  "organ_name" : "大直沽街道办",
+  "region_id" : 120102002,
+  "region_name" : "大直沽街道"
+}
