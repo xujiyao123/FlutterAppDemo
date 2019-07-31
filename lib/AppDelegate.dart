@@ -5,6 +5,7 @@ import 'package:flutter_app/Controllers/AppManager.dart';
 import 'package:flutter_app/Controllers/AppNotification.dart';
 import 'package:flutter_app/Controllers/ButtonExcampleController.dart';
 import 'package:flutter_app/Controllers/CostomScrollerController.dart';
+import 'package:flutter_app/Controllers/Dart-oc/BridgePage.dart';
 import 'package:flutter_app/Controllers/GuestController.dart';
 import 'package:flutter_app/Controllers/HomePageController.dart';
 import 'package:flutter_app/Controllers/ImageController.dart';
@@ -70,7 +71,8 @@ class AppDelegateState extends State<AppDelegate> {
           "customScroller_page" : (context) => CostomScrollerController(),
           "point_page" : (context) => PointEventPage(),
           "animation_page" : (context) => AnimationPage(),
-          "net_page" : (context) => NetWorkPage()
+          "net_page" : (context) => NetWorkPage(),
+          "bridge_page" : (context) => BridgePage()
         },
       ) ,
     );

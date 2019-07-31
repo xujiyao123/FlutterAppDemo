@@ -21,7 +21,8 @@ class HomePageViewState extends State<HomePageView> {
     "自定义" ,
     "手势事件" ,
   "动画" ,
-  "网络"];
+  "网络" ,
+  "原生交互"];
   var tapNames = ["new_page" ,
     "ios_page" ,
     "text_page" ,
@@ -31,7 +32,8 @@ class HomePageViewState extends State<HomePageView> {
     "customScroller_page",
     "point_page",
   "animation_page" ,
-  "net_page"];
+  "net_page" ,
+  "bridge_page"];
 
   var icons = [
       Icons.image,
@@ -43,7 +45,8 @@ class HomePageViewState extends State<HomePageView> {
       Icons.accessibility_new,
       Icons.thumbs_up_down,
       Icons.sentiment_very_dissatisfied,
-      Icons.network_wifi
+      Icons.network_wifi,
+      Icons.bug_report
   ];
 
 
