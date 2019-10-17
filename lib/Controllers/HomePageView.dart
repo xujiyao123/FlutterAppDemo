@@ -10,7 +10,10 @@ class HomePageView extends StatefulWidget {
 
 }
 
-class HomePageViewState extends State<HomePageView> {
+class HomePageViewState extends State<HomePageView> with SingleTickerProviderStateMixin{
+
+  TabController _tabController;
+  List tabs = ["功能" ,"动态","资讯"];
 
   var titles = ["图像处理" ,
     "苹果风格" ,
@@ -64,9 +67,15 @@ class HomePageViewState extends State<HomePageView> {
     );
   }
 
+
+  @override
+  void initState() {
+      super.initState();
+      _tabController = TabController(length: tabs.length ,vsync: this );
+  }
+
   Widget _collectionViewBuilder(BuildContext context , int item) {
     return Container(
-
       child: FlatButton(
         onPressed: ()=> Navigator.pushNamed(context, tapNames[item]),
         child:Column(
@@ -88,8 +97,23 @@ class HomePageViewState extends State<HomePageView> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Container(
-      child:
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("hello flutter"),
+          actions: <Widget>[
+            IconButton(icon: Icon(Icons.settings),onPressed: ()=>{
+              Navigator.pushNamed(context, "setting_page")
+            },)
+          ],
+          bottom: TabBar(
+              controller: _tabController,
+              tabs: tabs.map((e) {
+                return Tab(text: e);
+              }).toList()
+          ) ,
+        ),
+      drawer:MyDrawer() ,
+      body:
           ListView(
             children: <Widget>[
               Image.network("https://resources.ninghao.org/images/free_hugs.jpg" , height: 200, fit: BoxFit.cover,),
@@ -107,4 +131,68 @@ class HomePageViewState extends State<HomePageView> {
     );
   }
 
+}
+
+
+
+
+class MyDrawer extends StatelessWidget {
+  const MyDrawer({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: MediaQuery.removePadding(
+        context: context,
+        // DrawerHeader consumes top MediaQuery padding.
+        removeTop: true,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(top: 50.0),
+              child: Row(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: ClipOval(
+                      child: Image.asset(
+                        "lib/Resourse/1.png",
+                        width: 80,
+                        height: 80,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Text(
+                    "Sunnytu",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+            ),
+            Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(left: 20 , top: 20),
+                  child:  ListView(
+                    children: <Widget>[
+                      ListTile(
+                        leading: const Icon(Icons.add),
+                        title: const Text('Add account'),
+                      ),
+                      ListTile(
+                        leading: const Icon(Icons.settings),
+                        title: const Text('Manage accounts'),
+                      ),
+                    ],
+                  ),
+                )
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }

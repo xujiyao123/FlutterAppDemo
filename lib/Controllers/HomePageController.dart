@@ -17,9 +17,9 @@ class HomePageController extends StatefulWidget {
 
 class _HomePageControllerState extends State<HomePageController> with SingleTickerProviderStateMixin {
 
-  TabController _tabController;
 
-  List tabs = ["功能" ,"动态","资讯"];
+
+
 
   int _selectIndex = 0;
   void _tabbarAction(int index) {
@@ -43,7 +43,6 @@ class _HomePageControllerState extends State<HomePageController> with SingleTick
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: tabs.length ,vsync: this );
   }
 
 
@@ -51,21 +50,7 @@ class _HomePageControllerState extends State<HomePageController> with SingleTick
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        actions: <Widget>[
-            IconButton(icon: Icon(Icons.settings),onPressed: ()=>{
-              Navigator.pushNamed(context, "setting_page")
-            },)
-        ],
-        bottom: TabBar(
-          controller: _tabController,
-          tabs: tabs.map((e) {
-            return Tab(text: e);
-          }).toList()
-        ) ,
-      ),
-      drawer: MyDrawer(),
+
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home) , title: Text("Home")),
@@ -90,63 +75,3 @@ class _HomePageControllerState extends State<HomePageController> with SingleTick
 
 
 
-class MyDrawer extends StatelessWidget {
-  const MyDrawer({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Drawer(
-      child: MediaQuery.removePadding(
-        context: context,
-        // DrawerHeader consumes top MediaQuery padding.
-        removeTop: true,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(top: 50.0),
-              child: Row(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: ClipOval(
-                      child: Image.asset(
-                        "lib/Resourse/1.png",
-                        width: 80,
-                        height: 80,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  Text(
-                    "Sunnytu",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  )
-                ],
-              ),
-            ),
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.only(left: 20 , top: 20),
-                child:  ListView(
-                  children: <Widget>[
-                    ListTile(
-                      leading: const Icon(Icons.add),
-                      title: const Text('Add account'),
-                    ),
-                    ListTile(
-                      leading: const Icon(Icons.settings),
-                      title: const Text('Manage accounts'),
-                    ),
-                  ],
-                ),
-              )
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}

@@ -10,7 +10,7 @@ import Flutter
     GeneratedPluginRegistrant.register(with: self)
     
     let controller : FlutterViewController = window.rootViewController as! FlutterViewController
-    let batteryChannel = FlutterMethodChannel(name: "samples.flutter.io/battery", binaryMessenger: controller)
+    let batteryChannel = FlutterMethodChannel(name: "samples.flutter.io/battery", binaryMessenger: controller.binaryMessenger)
     
     batteryChannel.setMethodCallHandler { (call, result) in
         if "getBatteryLevel" == call.method {
@@ -32,3 +32,4 @@ import Flutter
     
     
 }
+

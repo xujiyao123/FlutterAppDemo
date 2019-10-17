@@ -40,7 +40,7 @@ class NetWorkPageState extends State<NetWorkPage> {
         Dio dio = new Dio();
         Response response;
         response = await dio.get(
-            "http://10.3.34.211:8082/rcs/api/v1/login/mobileLogin",
+            "http://114.115.147.115:8082/rcs/api/v1/login/mobileLogin",
             queryParameters: {"account" : "mengjie" , "password" : "123456"},
             options: Options(responseType: ResponseType.json)
         );

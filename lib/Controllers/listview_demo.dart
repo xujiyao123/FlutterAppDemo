@@ -14,14 +14,19 @@ class ListViewDemoStats extends State<ListViewDemo>{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Container(
-      color: Color(0xffECE584),
-      child: ListView.builder(
+    return Scaffold(
+      appBar: AppBar(title: Text("hello"),),
+      body: Container(
+          color: Color(0xffECE584),
+          child: ListView.builder(
 
-        itemCount: posts.length,
-        itemBuilder: _listItemBuilder,
-      )
+            itemCount: posts.length,
+            itemBuilder: _listItemBuilder,
+          )
+      ),
     );
+
+
   }
 
 
